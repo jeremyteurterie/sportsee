@@ -6,12 +6,14 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import Home from './pages/Home';
+import Profil from './pages/Profil';
 import Error404 from './pages/Error404';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Home />} errorElement={<Error404 />}></Route>
+      <Route path="/" element={<Home />} errorElement={<Error404 />} />
+      <Route path="/profil" element={<Profil />} errorElement={<Error404 />} />
       <Route path="*" element={<Error404 />} />
     </>
   )

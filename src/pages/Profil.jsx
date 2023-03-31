@@ -8,7 +8,7 @@ import * as Mock from '../services/mockData';
 // components
 import Header from '../components/Header';
 import Title from '../components/Title';
-import BarChart from '../components/userBarChart';
+import BarChart from '../components/BarChart';
 
 // assets
 import calories from '../assets/energy.svg';

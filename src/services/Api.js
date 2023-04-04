@@ -9,20 +9,21 @@ const api = axios.create({
  * @param {Number} id of user
  * @returns {Promise}
  */
-export const getUser = async (id) => {
-  return await api.get('/user/' + id).then((res) => res.data.data);
-};
+export default function getUser(id) {
+  return api.get('/user/' + id).then((res) => res.data.data);
+}
 
 /**
+ *
  * get user activities
  * @param {Number} id of user
  * @returns {Promise}
  */
-export const getUserActivity = async (id) => {
-  return await api
-    .get('/user/' + id + '/activity')
-    .then((res) => res.data.data.sessions);
-};
+export function getUserActivity(id) {
+  return api
+    .get('/user/' + id)
+    .then((res) => console.log(res.data.data.sessions));
+}
 
 /**
  * get user sessions

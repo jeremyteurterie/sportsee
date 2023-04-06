@@ -1,10 +1,10 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-export async function getUserById(id) {
-  return await axios
-    .get('http://localhost:3000/user/' + id)
-    .then((response) => response.data.data);
-}
+// export async function getUserById(id) {
+//   return await axios
+//     .get('http://localhost:3000/user/' + id)
+//     .then((response) => response.data.data);
+// }
 
 // /**
 //  * get user infos

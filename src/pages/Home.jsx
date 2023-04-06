@@ -1,15 +1,34 @@
 import { React } from 'react';
+import { useOutletContext } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
 
-import Header from '../components/Header';
-import Layout from '../layouts/Layout';
+import styles from '../styles/Home.module.css';
+
 import Title from '../components/Title';
 
 const Home = () => {
+  const [id] = useOutletContext();
+  const { data, error } = useFetch(id);
+
+  if (error) {
+    throw error;
+  }
   return (
     <>
-      <Header />
-      <Layout />
-      <Title />
+      {data && (
+        <>
+          <Title />
+
+          <section id={styles.infosContainer}>
+            <section id={styles.graphContainer}>
+              <section id={styles.barChart}></section>
+              <section id={styles.otherCharts}></section>
+            </section>
+
+            <section id={styles.keyDatas}></section>
+          </section>
+        </>
+      )}
     </>
   );
 };

@@ -8,11 +8,14 @@ import {
 
 import Home from './pages/Home';
 import Error404 from './pages/Error404';
+import Layout from './layouts/Layout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Home />} errorElement={<Error404 />} />
+      <Route path="/" element={<Layout />} errorElement={<Error404 />}>
+        <Route index element={<Home />} errorElement={<Error404 />} />
+      </Route>
       <Route path="*" element={<Error404 />} />
     </>
   )

@@ -3,7 +3,7 @@ import {
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
   USER_PERFORMANCE,
-} from '../data/mock';
+} from './mock';
 
 export const getUser = (id) => {
   return USER_MAIN_DATA.find(({ id }) => id === id);

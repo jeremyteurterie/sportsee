@@ -1,4 +1,4 @@
-.userinfos {
+.user-infos {
   margin-left: 8%;
   padding: 2% 8%;
 }
@@ -13,7 +13,7 @@ main {
   gap: 31px;
 }
 
-.graphs {
+#graphs {
   display: flex;
   flex-direction: column;
   flex-grow: 3;
@@ -51,7 +51,7 @@ main {
 
 #main-graph {
   background-color: #fbfbfb;
-  padding: 100px 0 20px 0;
+  padding: 60px 0 20px 0;
 }
 
 #main-graph-title {

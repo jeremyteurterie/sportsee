@@ -3,8 +3,8 @@ import styles from '../styles/Title.module.css';
 
 const Title = ({ firstName }) => {
   return (
-    <section className={styles.title}>
-      <h1>
+    <section>
+      <h1 className={styles.title}>
         Bonjour <span className={styles.firstnametitle}>{firstName}</span>
       </h1>
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>

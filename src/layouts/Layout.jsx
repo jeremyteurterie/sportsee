@@ -22,9 +22,9 @@ const Layout = () => {
       ) : (
         <>
           <Header />
-          <main className={styles.main}>
+          <div className={styles.main}>
             <Outlet context={[id, setId]} />
-          </main>
+          </div>
         </>
       )}
     </>

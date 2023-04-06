@@ -1,0 +1,27 @@
+aside {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 8%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+}
+
+aside nav {
+    display: flex;
+    flex-direction: column;
+}
+
+#copyright {
+    font-size: 12px;
+    position: absolute;
+    rotate: 270deg;
+    padding: 0;
+    bottom: 10%;
+    width: max-content;
+    color: white;
+}

@@ -19,7 +19,7 @@ export function getUserActivity(id) {
   useEffect(() => {
     setUserActivity(null);
     axios.get('http://localhost:3000/user/' + id + '/activity').then((res) => {
-      res.data.data.sessions && setUserActivity(res.data.data.sessions);
+      res.data.data && setUserActivity(res.data.data);
     });
   }, []);
   return { userActivity };

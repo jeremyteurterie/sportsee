@@ -1,40 +1,138 @@
-#infosContainer {
-  display: flex;
-  gap: 50px;
-  margin-top: 70px;
+.userinfos {
+  margin-left: 5%;
+  padding: 2% 8%;
 }
 
-#graphContainer {
+h1 {
+  font-size: 48px;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  gap: 31px;
+}
+
+.graphs {
   display: flex;
   flex-direction: column;
+  flex-grow: 3;
   gap: 30px;
+  max-width: 80%;
 }
 
-#otherCharts {
-  display: flex;
-  gap: 20px;
-}
-
-#keyDatas {
+#stats {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  flex-grow: 0.25;
+  gap: 39px;
 }
 
-@media screen and (max-width: 1300px) {
-  #infosContainer {
-    display: initial;
-  }
+#advanced-stats {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  gap: 1vw;
+}
 
-  #keyDatas {
+#advanced-stats > * {
+  position: relative;
+  flex-grow: 0.333333;
+  display: flex;
+  border-radius: 5px;
+}
+
+#daily-activity {
+  display: flex;
+  flex-grow: 1;
+  background-color: black;
+  border-radius: 5px;
+}
+
+#duration-graph-title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #ffffff;
+  opacity: 50%;
+}
+
+#performance-chart {
+  background-color: #282d30;
+}
+
+#duration-chart {
+  background-color: #ff0000;
+}
+
+.duration-chart-title {
+  margin-top: -5px;
+  line-height: 50%;
+  color: white;
+  opacity: 50%;
+}
+
+#score-chart {
+  background-color: #fbfbfb;
+}
+
+#score-chart-legend {
+  text-align: center;
+}
+
+#score-percent {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+#score-graph-title {
+  position: absolute;
+  top: -70px;
+  left: 20px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.duration-tooltip {
+  background-color: white;
+  width: 55px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  padding: 5px;
+  font-size: small;
+}
+
+@media screen and (max-width: 1200px) {
+  #stats {
     flex-direction: row;
     gap: 10px;
-    margin-top: 30px;
+    flex-wrap: wrap;
   }
-}
 
-@media screen and (min-width: 1600px) {
-  #infosContainer {
+  main {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  #main-graph {
+    padding-bottom: 5px;
+  }
+
+  #graphs {
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin: 0px;
+  }
+
+  #stats > * {
+    padding: 20px;
   }
 }

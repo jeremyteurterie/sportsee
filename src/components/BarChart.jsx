@@ -1,37 +1,52 @@
-import React from 'react';
 import {
-  Tooltip,
+  BarChart,
+  Bar,
   XAxis,
   YAxis,
-  BarChart,
-  ResponsiveContainer,
-  Legend,
   CartesianGrid,
-  Bar,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
 } from 'recharts';
+import PropTypes from 'prop-types';
 import styles from '../styles/BarChart.module.css';
 
-const userBarChart = ({ dailyData }) => {
+/**
+ * A bar chart that displays daily data for weight and calories burned.
+ * @param {Object} props - The component props.
+ * @param {Array} props.dailyData - An array of objects representing daily data.
+ * @returns {JSX.Element} - A React component for the daily chart.
+ */
+const DailyChart = ({ dailyData }) => {
+  /**
+   * A custom tooltip component for the daily chart.
+   * @param {Object} payload - The payload of the active tooltip item.
+   * @param {boolean} active - Whether the tooltip is active.
+   * @returns {JSX.Element} - A React component for the tooltip.
+   */
   const TooltipGenerator = ({ payload, active }) => {
     if (active) {
       return (
         <div className={styles.dailytooltip}>
-          {/* <div>{payload[0].value}kg</div> */}
-          {/* <div>{payload[1].value}Kcal</div> */}
-          <div>kg</div>
-          <div>Kcal</div>
+          <div>{payload[0].value}kg</div>
+          <div>{payload[1].value}Kcal</div>
         </div>
       );
     }
   };
 
+  /**
+   * A function that generates a legend with a gray text color.
+   * @param {string} value - The text to display in the legend.
+   * @returns {JSX.Element} - A React component for the legend.
+   */
   const GenerateLegendWithoutTextColor = (value) => {
     return <span style={{ color: '#74798C' }}>{value}</span>;
   };
 
   return (
-    <div id={styles.maingraph}>
-      <span id={styles.maingraphtitle}>Activité Quotidienne</span>
+    <div className={styles.maingraph}>
+      <span className={styles.maingraphtitle}>Activité Quotidienne</span>
       <ResponsiveContainer
         width="100%"
         maxHeight={250}
@@ -45,7 +60,7 @@ const userBarChart = ({ dailyData }) => {
             iconType="circle"
             verticalAlign="top"
             align="right"
-            wrapperStyle={{ marginTop: '145px' }}
+            wrapperStyle={{ marginTop: '-45px' }}
           />
           <CartesianGrid vertical={false} strokeDasharray="1 1" />
           <XAxis
@@ -99,4 +114,14 @@ const userBarChart = ({ dailyData }) => {
   );
 };
 
-export default userBarChart;
+DailyChart.propTypes = {
+  dailyData: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string.isRequired,
+      kilogram: PropTypes.number.isRequired,
+      calories: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
+
+export default DailyChart;

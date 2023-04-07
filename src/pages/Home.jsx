@@ -7,9 +7,10 @@ import {
   getUserPerformance,
 } from '../hooks/useAxios';
 
-import styles from '../styles/Home.module.css';
-
 import Title from '../components/Title';
+import BarChart from '../components/BarChart';
+
+import styles from '../styles/Home.module.css';
 
 const Home = () => {
   const [id] = useOutletContext();
@@ -17,27 +18,22 @@ const Home = () => {
   const { userActivity } = getUserActivity(id);
   const { userAverageSessions } = getUserAverageSessions(id);
   const { userPerformance } = getUserPerformance(id);
+  console.log(userActivity);
 
   return (
     <>
-      {/* {error && <>{error}</>} */}
-      {userId ? (
-        <>
-          <Title firstName={userId.userInfos.firstName} />
-        </>
-      ) : null}
-      {userActivity ? <></> : null}
-      {userAverageSessions ? <></> : null}
-      {userPerformance ? <></> : null}
-
-      <section id={styles.infosContainer}>
-        <section id={styles.graphContainer}>
-          <section id={styles.barChart}></section>
-          <section id={styles.otherCharts}></section>
-        </section>
-
-        <section id={styles.keyDatas}></section>
-      </section>
+      <div className={styles.userinfos}>
+        {userId ? <Title firstName={userId.userInfos.firstName} /> : null}
+        <main>
+          {userActivity ? (
+            <article className={styles.graphs}>
+              <BarChart dailyData={userActivity.sessions} />
+            </article>
+          ) : null}
+          {userAverageSessions ? <></> : null}
+          {userPerformance ? <></> : null}
+        </main>
+      </div>
     </>
   );
 };

@@ -13,9 +13,7 @@ const Header = () => {
     <header>
       <nav className={styles.nav1}>
         <ul>
-          <li>
-            <img src={logo} alt="logo sportsee" />
-          </li>
+          <img src={logo} alt="logo sportsee" />
           <li>
             <NavLink
               to="/"

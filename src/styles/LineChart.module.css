@@ -1,0 +1,23 @@
+.durationchart {
+  background-color: #ff0000;
+}
+
+.durationcharttitle {
+  margin-top: -5px;
+  margin-bottom: 15px;
+  line-height: 50%;
+  color: white;
+  opacity: 50%;
+}
+
+.durationtooltip {
+  background-color: white;
+  width: 55px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  padding: 5px;
+  font-size: small;
+}

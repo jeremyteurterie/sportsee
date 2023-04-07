@@ -9,6 +9,7 @@ import {
 
 import Title from '../components/Title';
 import BarChart from '../components/BarChart';
+import LineChart from '../components/LineChart';
 
 import styles from '../styles/Home.module.css';
 
@@ -18,19 +19,23 @@ const Home = () => {
   const { userActivity } = getUserActivity(id);
   const { userAverageSessions } = getUserAverageSessions(id);
   const { userPerformance } = getUserPerformance(id);
-  console.log(userActivity);
+  console.log(userAverageSessions);
 
   return (
     <>
       <div className={styles.userinfos}>
         {userId ? <Title firstName={userId.userInfos.firstName} /> : null}
         <main>
-          {userActivity ? (
-            <article className={styles.graphs}>
+          <article className={styles.graphs}>
+            {userActivity ? (
               <BarChart dailyData={userActivity.sessions} />
-            </article>
-          ) : null}
-          {userAverageSessions ? <></> : null}
+            ) : null}
+            {userAverageSessions ? (
+              <span className={styles.advancedstats}>
+                <LineChart durationData={userAverageSessions} />
+              </span>
+            ) : null}
+          </article>
           {userPerformance ? <></> : null}
         </main>
       </div>

@@ -28,14 +28,14 @@ main {
   gap: 39px;
 }
 
-#advanced-stats {
+.advancedstats {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   gap: 1vw;
 }
 
-#advanced-stats > * {
+.advancedstats > * {
   position: relative;
   flex-grow: 0.333333;
   display: flex;
@@ -49,27 +49,8 @@ main {
   border-radius: 5px;
 }
 
-#duration-graph-title {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: #ffffff;
-  opacity: 50%;
-}
-
 #performance-chart {
   background-color: #282d30;
-}
-
-#duration-chart {
-  background-color: #ff0000;
-}
-
-.duration-chart-title {
-  margin-top: -5px;
-  line-height: 50%;
-  color: white;
-  opacity: 50%;
 }
 
 #score-chart {
@@ -91,18 +72,6 @@ main {
   left: 20px;
   font-weight: 500;
   font-size: 15px;
-}
-
-.duration-tooltip {
-  background-color: white;
-  width: 55px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  padding: 5px;
-  font-size: small;
 }
 
 @media screen and (max-width: 1200px) {

@@ -10,6 +10,7 @@ import {
 import Title from '../components/Title';
 import BarChart from '../components/BarChart';
 import LineChart from '../components/LineChart';
+import PerformanceChart from '../components/PerformanceChart';
 
 import styles from '../styles/Home.module.css';
 
@@ -19,7 +20,7 @@ const Home = () => {
   const { userActivity } = getUserActivity(id);
   const { userAverageSessions } = getUserAverageSessions(id);
   const { userPerformance } = getUserPerformance(id);
-  console.log(userAverageSessions);
+  console.log(userPerformance);
 
   return (
     <>
@@ -33,6 +34,7 @@ const Home = () => {
             {userAverageSessions ? (
               <span className={styles.advancedstats}>
                 <LineChart durationData={userAverageSessions} />
+                <PerformanceChart performanceData={userPerformance.data} />
               </span>
             ) : null}
           </article>

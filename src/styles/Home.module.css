@@ -21,92 +21,31 @@ main {
   max-width: 80%;
 }
 
-#stats {
+.stats {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   flex-grow: 0.25;
   gap: 39px;
+  margin-top: 25px;
 }
 
-#advanced-stats {
+.advancedstats {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   gap: 1vw;
 }
 
-#advanced-stats > * {
+.advancedstats > * {
   position: relative;
   flex-grow: 0.333333;
   display: flex;
   border-radius: 5px;
 }
 
-#daily-activity {
-  display: flex;
-  flex-grow: 1;
-  background-color: black;
-  border-radius: 5px;
-}
-
-#duration-graph-title {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: #ffffff;
-  opacity: 50%;
-}
-
-#performance-chart {
-  background-color: #282d30;
-}
-
-#duration-chart {
-  background-color: #ff0000;
-}
-
-.duration-chart-title {
-  margin-top: -5px;
-  line-height: 50%;
-  color: white;
-  opacity: 50%;
-}
-
-#score-chart {
-  background-color: #fbfbfb;
-}
-
-#score-chart-legend {
-  text-align: center;
-}
-
-#score-percent {
-  font-size: 26px;
-  font-weight: 700;
-}
-
-#score-graph-title {
-  position: absolute;
-  top: -70px;
-  left: 20px;
-  font-weight: 500;
-  font-size: 15px;
-}
-
-.duration-tooltip {
-  background-color: white;
-  width: 55px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  padding: 5px;
-  font-size: small;
-}
-
 @media screen and (max-width: 1200px) {
-  #stats {
+  .stats {
     flex-direction: row;
     gap: 10px;
     flex-wrap: wrap;
@@ -118,11 +57,11 @@ main {
     gap: 10px;
   }
 
-  #main-graph {
+  .maingraph {
     padding-bottom: 5px;
   }
 
-  #graphs {
+  .graphs {
     max-width: 100%;
     gap: 10px;
   }
@@ -132,7 +71,7 @@ main {
     margin: 0px;
   }
 
-  #stats > * {
+  .stats > * {
     padding: 20px;
   }
 }

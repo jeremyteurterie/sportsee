@@ -6,9 +6,9 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 
+import Layout from './layouts/Layout';
 import Home from './pages/Home';
 import Error404 from './pages/Error404';
-import Layout from './layouts/Layout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(

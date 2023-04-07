@@ -19,7 +19,7 @@ export function getUserActivity(id) {
   useEffect(() => {
     setUserActivity(null);
     axios.get('http://localhost:3000/user/' + id + '/activity').then((res) => {
-      res.data.data && setUserActivity(res.data.data);
+      res.data.data.sessions && setUserActivity(res.data.data.sessions);
     });
   }, []);
   return { userActivity };
@@ -52,4 +52,16 @@ export function getUserPerformance(id) {
       });
   }, []);
   return { userPerformance };
+}
+
+export function getUserScore(id) {
+  const [userScore, setUserScore] = useState(null);
+
+  useEffect(() => {
+    setUserScore(null);
+    axios.get('http://localhost:3000/user/' + id).then((res) => {
+      res.data.data.score && setUserScore(res.data.data.score);
+    });
+  }, []);
+  return { userScore };
 }

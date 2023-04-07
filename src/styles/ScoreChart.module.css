@@ -1,0 +1,20 @@
+.scorechart {
+  background-color: #fbfbfb;
+}
+
+.scorechartlegend {
+  text-align: center;
+}
+
+.scorepercent {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.scoregraphtitle {
+  position: absolute;
+  top: -70px;
+  left: 20px;
+  font-weight: 500;
+  font-size: 15px;
+}

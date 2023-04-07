@@ -27,7 +27,7 @@ const DailyChart = ({ dailyData }) => {
   const TooltipGenerator = ({ payload, active }) => {
     if (active) {
       return (
-        <div className={styles.dailytooltip}>
+        <div className="daily-tooltip">
           <div>{payload[0].value}kg</div>
           <div>{payload[1].value}Kcal</div>
         </div>

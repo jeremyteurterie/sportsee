@@ -53,3 +53,15 @@ export function getUserPerformance(id) {
   }, []);
   return { userPerformance };
 }
+
+export function getUserScore(id) {
+  const [userScore, setUserScore] = useState(null);
+
+  useEffect(() => {
+    setUserScore(null);
+    axios.get('http://localhost:3000/user/' + id).then((res) => {
+      res.data.data.score && setUserScore(res.data.data.score);
+    });
+  }, []);
+  return { userScore };
+}

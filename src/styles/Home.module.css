@@ -49,31 +49,6 @@ main {
   border-radius: 5px;
 }
 
-#performance-chart {
-  background-color: #282d30;
-}
-
-#score-chart {
-  background-color: #fbfbfb;
-}
-
-#score-chart-legend {
-  text-align: center;
-}
-
-#score-percent {
-  font-size: 26px;
-  font-weight: 700;
-}
-
-#score-graph-title {
-  position: absolute;
-  top: -70px;
-  left: 20px;
-  font-weight: 500;
-  font-size: 15px;
-}
-
 @media screen and (max-width: 1200px) {
   #stats {
     flex-direction: row;

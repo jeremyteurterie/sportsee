@@ -5,12 +5,14 @@ import {
   getUserActivity,
   getUserAverageSessions,
   getUserPerformance,
+  getUserScore,
 } from '../hooks/useAxios';
 
 import Title from '../components/Title';
 import BarChart from '../components/BarChart';
 import LineChart from '../components/LineChart';
 import PerformanceChart from '../components/PerformanceChart';
+import ScoreChart from '../components/ScoreChart';
 
 import styles from '../styles/Home.module.css';
 
@@ -20,7 +22,8 @@ const Home = () => {
   const { userActivity } = getUserActivity(id);
   const { userAverageSessions } = getUserAverageSessions(id);
   const { userPerformance } = getUserPerformance(id);
-  console.log(userPerformance);
+  const { userScore } = getUserScore(id);
+  console.log(userScore);
 
   return (
     <>
@@ -35,6 +38,7 @@ const Home = () => {
               <span className={styles.advancedstats}>
                 <LineChart durationData={userAverageSessions} />
                 <PerformanceChart performanceData={userPerformance.data} />
+                <ScoreChart scoreData={userScore} />
               </span>
             ) : null}
           </article>

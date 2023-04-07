@@ -9,6 +9,8 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import PropTypes from 'prop-types';
+import styles from '../styles/BarChart.module.css';
+
 /**
  * A bar chart that displays daily data for weight and calories burned.
  * @param {Object} props - The component props.
@@ -25,7 +27,7 @@ const DailyChart = ({ dailyData }) => {
   const TooltipGenerator = ({ payload, active }) => {
     if (active) {
       return (
-        <div className="daily-tooltip">
+        <div className={styles.dailytooltip}>
           <div>{payload[0].value}kg</div>
           <div>{payload[1].value}Kcal</div>
         </div>
@@ -43,8 +45,8 @@ const DailyChart = ({ dailyData }) => {
   };
 
   return (
-    <div id="main-graph">
-      <span id="main-graph-title">Activité Quotidienne</span>
+    <div className={styles.maingraph}>
+      <span className={styles.maingraphtitle}>Activité Quotidienne</span>
       <ResponsiveContainer
         width="100%"
         maxHeight={250}

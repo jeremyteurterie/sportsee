@@ -1,5 +1,5 @@
 .userinfos {
-  margin-left: 8%;
+  margin-left: 5%;
   padding: 2% 8%;
 }
 
@@ -49,17 +49,6 @@ main {
   border-radius: 5px;
 }
 
-#main-graph {
-  background-color: #fbfbfb;
-  padding: 100px 0 20px 0;
-}
-
-#main-graph-title {
-  position: absolute;
-  margin: -40px 20px;
-  font-weight: 500;
-}
-
 #duration-graph-title {
   position: absolute;
   top: 20px;
@@ -102,21 +91,6 @@ main {
   left: 20px;
   font-weight: 500;
   font-size: 15px;
-}
-
-.daily-tooltip {
-  background-color: #e60000;
-  width: 55px;
-  height: 75px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  margin-left: 60px;
-  margin-top: -80px;
-  color: white;
-  padding: 5px;
-  font-size: small;
 }
 
 .duration-tooltip {

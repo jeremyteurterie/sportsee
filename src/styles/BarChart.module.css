@@ -1,12 +1,12 @@
-#maingraph {
+.maingraph {
   background-color: #fbfbfb;
   padding: 60px 0 20px 0;
-  margin-top: 75px;
+  margin-top: 25px;
 }
 
-#maingraphtitle {
+.maingraphtitle {
   position: absolute;
-  margin: -40px 250px;
+  margin: -40px 40px;
   font-weight: 500;
 }
 

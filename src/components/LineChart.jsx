@@ -64,8 +64,8 @@ const SessionsDurationChart = ({ durationData }) => {
   const DurationChartTitle = () => {
     return (
       <>
-        <p className={styles.durationcharttitle}>Average Session Duration</p>
-        <p className={styles.durationcharttitle}>by Day of the Week</p>
+        <p className={styles.durationcharttitle}>Durée moyenne des</p>
+        <p className={styles.durationcharttitle}>sessions</p>
       </>
     );
   };

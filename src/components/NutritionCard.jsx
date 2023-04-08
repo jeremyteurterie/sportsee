@@ -5,10 +5,23 @@ import proteinesIcon from '../assets/chicken.svg';
 import glucidesIcon from '../assets/apple.svg';
 import styles from '../styles/NutritionCard.module.css';
 
+/**
+ * React component that displays a list of nutrition cards.
+ *
+ * @param {object} props - The component properties.
+ * @param {object} props.data - The nutrition data to display.
+ * @returns {array} An array of nutrition cards.
+ */
 const NutritionCard = ({ data }) => {
   return generateCards(data);
 };
 
+/**
+ * Generates a list of nutrition cards.
+ *
+ * @param {object} data - The nutrition data to display.
+ * @returns {array} An array of nutrition cards.
+ */
 function generateCards(data) {
   const nutritionCardList = [];
   for (const [key, value] of Object.entries(data)) {
@@ -21,6 +34,13 @@ function generateCards(data) {
   return nutritionCardList;
 }
 
+/**
+ * Generates the nutrition information for a specific card.
+ *
+ * @param {string} key - The key of the nutrition information to display.
+ * @param {string|number} value - The value of the nutrition information to display.
+ * @returns {JSX.Element} The nutrition information as a JSX element.
+ */
 function generateNutritionInfo(key, value) {
   const nutritionInfo = {
     calorieCount: {
@@ -31,17 +51,17 @@ function generateNutritionInfo(key, value) {
     proteinCount: {
       imgSrc: proteinesIcon,
       label: 'g',
-      name: 'Proteines',
+      name: 'Proteins',
     },
     carbohydrateCount: {
       imgSrc: glucidesIcon,
       label: 'g',
-      name: 'Glucides',
+      name: 'Carbohydrates',
     },
     lipidCount: {
       imgSrc: lipidesIcon,
       label: 'g',
-      name: 'Lipides',
+      name: 'Lipids',
     },
   };
 

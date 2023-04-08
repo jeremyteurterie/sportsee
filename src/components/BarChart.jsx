@@ -11,7 +11,20 @@ import {
 import PropTypes from 'prop-types';
 import styles from '../styles/BarChart.module.css';
 
+/**
+ * This component displays a daily activity chart with two Y-axes representing weight (kilograms) and burned calories (kcal) over the course of the week.
+ * @param {Object} props - The props object for this component.
+ * @param {Array} props.dailyData - An array of daily data objects, each containing a 'day' (string), 'kilogram' (number), and 'calories' (number) property.
+ * @returns {JSX.Element} - A JSX element representing the daily activity chart.
+ */
 const DailyActivityChart = ({ dailyData }) => {
+  /**
+   * This function returns the JSX for the tooltip displayed when hovering over a data point in the chart.
+   * @param {Object} props - The props object for this function.
+   * @param {Array} props.payload - An array of payload data for the hovered data point.
+   * @param {boolean} props.active - A boolean value representing whether the tooltip is currently active.
+   * @returns {JSX.Element|null} - A JSX element representing the tooltip if active, otherwise null.
+   */
   function ActivityToolTip(props) {
     const { payload, active } = props;
     if (active) {
@@ -26,6 +39,11 @@ const DailyActivityChart = ({ dailyData }) => {
     }
   }
 
+  /**
+   * This function returns a JSX element representing a legend item with a colorless label.
+   * @param {string} value - The label text for the legend item.
+   * @returns {JSX.Element} - A JSX element representing the legend item.
+   */
   function ColorlessLegend(value) {
     return <span style={{ color: '#74798C' }}>{value}</span>;
   }

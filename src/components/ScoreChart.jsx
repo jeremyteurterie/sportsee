@@ -2,8 +2,18 @@ import { ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
 import PropTypes from 'prop-types';
 import styles from '../styles/ScoreChart.module.css';
 
+/**
+ * Displays a chart representing the user's score progress towards their goal.
+ * @param {Object} props - The component's props.
+ * @param {number} props.scoreData - The user's score progress towards their goal, represented as a number between 0 and 1.
+ * @returns {JSX.Element} - The rendered chart component.
+ */
 function ScoreChart({ scoreData }) {
   const percentScore = [{ value: scoreData }, { value: 1 - scoreData }];
+  /**
+   * Displays the legend for the score chart.
+   * @returns {JSX.Element} - The rendered legend component.
+   */
   const ScoreChartLegend = () => {
     return (
       <>

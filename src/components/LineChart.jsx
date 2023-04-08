@@ -11,15 +11,39 @@ import {
 import PropTypes from 'prop-types';
 import styles from '../styles/LineChart.module.css';
 
+/**
+ * A component that renders a line chart of average session durations by day of the week
+ *
+ * @component
+ * @param {object} props - The props object
+ * @param {Array} props.durationData - An array of objects representing the data for the chart
+ * @returns {JSX.Element} - A React component
+ */
 const SessionsDurationChart = ({ durationData }) => {
+  /**
+   * A helper function that returns the letter representation of the given day number
+   *
+   * @function
+   * @param {number} day - The day number (1-7)
+   * @returns {string} - The letter representation of the day (M, Tu, W, Th, F, Sa, Su)
+   */
   function dayNumberToLetter(day) {
-    const dayLetters = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+    const dayLetters = ['M', 'Tu', 'W', 'Th', 'F', 'Sa', 'Su'];
     if (day < 1 || day > 7) {
       return '';
     }
     return dayLetters[day - 1];
   }
 
+  /**
+   * A custom tooltip component for the chart
+   *
+   * @function
+   * @param {object} props - The props object
+   * @param {object[]} props.payload - An array of data objects for the active tooltip label
+   * @param {boolean} props.active - A boolean indicating whether the tooltip is active or not
+   * @returns {JSX.Element} - A React component
+   */
   const DurationToolTip = (props) => {
     const { payload, active } = props;
     if (active) {
@@ -31,11 +55,17 @@ const SessionsDurationChart = ({ durationData }) => {
     }
   };
 
+  /**
+   * A custom title component for the chart
+   *
+   * @function
+   * @returns {JSX.Element} - A React component
+   */
   const DurationChartTitle = () => {
     return (
       <>
-        <p className={styles.durationcharttitle}>Durée moyenne des</p>
-        <p className={styles.durationcharttitle}>sessions</p>
+        <p className={styles.durationcharttitle}>Average Session Duration</p>
+        <p className={styles.durationcharttitle}>by Day of the Week</p>
       </>
     );
   };

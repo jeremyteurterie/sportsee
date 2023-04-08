@@ -7,6 +7,10 @@ import icon2 from '../assets/nav-2.png';
 import icon3 from '../assets/nav-3.png';
 import icon4 from '../assets/nav-4.png';
 
+/**
+ * Header component with navigation links and icons.
+ * @returns {JSX.Element} The Header component.
+ */
 const Header = () => {
   const icons = [icon1, icon2, icon3, icon4];
   return (

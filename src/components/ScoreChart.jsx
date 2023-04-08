@@ -2,26 +2,8 @@ import { ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
 import PropTypes from 'prop-types';
 import styles from '../styles/ScoreChart.module.css';
 
-/**
- * React functional component that renders a score chart using the Recharts library.
- *
- * @param {Object} props - The component props.
- * @param {number} props.scoreData - The score data to render.
- * @returns {JSX.Element} - The rendered component.
- */
 function ScoreChart({ scoreData }) {
-  /**
-   * Formats the score data for use in a pie chart.
-   *
-   * @type {Array} - The formatted data.
-   */
   const percentScore = [{ value: scoreData }, { value: 1 - scoreData }];
-
-  /**
-   * Component that renders the legend for the score chart.
-   *
-   * @returns {JSX.Element} - The rendered legend.
-   */
   const ScoreChartLegend = () => {
     return (
       <>

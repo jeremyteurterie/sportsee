@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React, { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import {
   getUserId,
@@ -23,7 +23,7 @@ const Home = () => {
   const { userActivity } = getUserActivity(id);
   const { userAverageSessions } = getUserAverageSessions(id);
   const { userPerformance } = getUserPerformance(id);
-  const { userScore } = getUserScore(id);
+  const { userScoreCecilia, userScoreKarl } = getUserScore(id);
 
   return (
     <>
@@ -38,7 +38,12 @@ const Home = () => {
                 <span className={styles.advancedstats}>
                   <LineChart durationData={userAverageSessions} />
                   <PerformanceChart performanceData={userPerformance.data} />
-                  <ScoreChart scoreData={userScore} />
+                  {id === 12 && userScoreCecilia !== undefined && (
+                    <ScoreChart scoreData={userScoreKarl} />
+                  )}
+                  {id === 18 && userScoreKarl !== undefined && (
+                    <ScoreChart scoreData={userScoreCecilia} />
+                  )}
                 </span>
               ) : null)
             }

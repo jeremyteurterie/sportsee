@@ -55,13 +55,19 @@ export function getUserPerformance(id) {
 }
 
 export function getUserScore(id) {
-  const [userScore, setUserScore] = useState(null);
+  const [userScoreCecilia, setUserScoreCecilia] = useState(null);
+  const [userScoreKarl, setUserScoreKarl] = useState(null);
 
   useEffect(() => {
-    setUserScore(null);
-    axios.get('http://localhost:3000/user/' + id).then((res) => {
-      res.data.data.score && setUserScore(res.data.data.score);
-    });
+    if (id === 12) {
+      axios.get('http://localhost:3000/user/' + id).then((res) => {
+        res.data.data.todayScore && setUserScoreKarl(res.data.data.todayScore);
+      });
+    } else if (id === 18) {
+      axios.get('http://localhost:3000/user/' + id).then((res) => {
+        res.data.data.score && setUserScoreCecilia(res.data.data.score);
+      });
+    }
   }, []);
-  return { userScore };
+  return { userScoreKarl, userScoreCecilia };
 }

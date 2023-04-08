@@ -17,6 +17,10 @@ import NutritionCard from '../components/NutritionCard';
 
 import styles from '../styles/Home.module.css';
 
+/**
+ * A React functional component representing the Home page of the application.
+ * @return {JSX.Element} The JSX element that represents the Home page.
+ */
 const Home = () => {
   const [id] = useOutletContext();
   const { userId } = getUserId(id);

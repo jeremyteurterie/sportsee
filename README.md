@@ -1,5 +1,5 @@
 # SportSee
-Développez un tableau de bord d'analytics avec React
+Develop an analytics dashboard with React.
 
 ## 1. Backend
 - The repository is available here [Backend](https://github.com/pvianap/P12-sportsee-OPC).
@@ -18,10 +18,10 @@ In the project directory :
 - Clone this repository on your computer.
 
 ### 2.1 Prerequisites
-- [React v18.2.0](https://react.dev/)
-- [Recharts v2.5.0](https://recharts.org/en-US/)
-- [Axios v1.3.4](https://www.npmjs.com/package/axios)
-- [npm v9.3.1](https://www.npmjs.com/)
+- [React v18.2.0](https://react.dev/).
+- [Recharts v2.5.0](https://recharts.org/en-US/).
+- [Axios v1.3.4](https://www.npmjs.com/package/axios).
+- [npm v9.3.1](https://www.npmjs.com/).
 
 ### 2.2 Lauching the project
 In the project directory :

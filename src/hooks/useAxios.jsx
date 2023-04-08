@@ -6,9 +6,15 @@ export function getUserId(id) {
 
   useEffect(() => {
     setUserId(null);
-    axios.get('http://localhost:3000/user/' + id).then((res) => {
-      res.data.data && setUserId(res.data.data);
-    });
+    axios
+      .get('http://localhost:3000/user/' + id)
+      .then((res) => {
+        res.data.data && setUserId(res.data.data);
+      })
+      .catch((error) => {
+        console.error('An error occurred during the API call', error);
+        setUserId(null);
+      });
   }, []);
   return { userId };
 }
@@ -18,9 +24,15 @@ export function getUserActivity(id) {
 
   useEffect(() => {
     setUserActivity(null);
-    axios.get('http://localhost:3000/user/' + id + '/activity').then((res) => {
-      res.data.data.sessions && setUserActivity(res.data.data.sessions);
-    });
+    axios
+      .get('http://localhost:3000/user/' + id + '/activity')
+      .then((res) => {
+        res.data.data.sessions && setUserActivity(res.data.data.sessions);
+      })
+      .catch((error) => {
+        console.error('An error occurred during the API call', error);
+        setUserActivity(null);
+      });
   }, []);
   return { userActivity };
 }
@@ -35,6 +47,10 @@ export function getUserAverageSessions(id) {
       .then((res) => {
         res.data.data.sessions &&
           setUserAverageSessions(res.data.data.sessions);
+      })
+      .catch((error) => {
+        console.error('An error occurred during the API call', error);
+        setUserAverageSessions(null);
       });
   }, []);
   return { userAverageSessions };
@@ -49,24 +65,43 @@ export function getUserPerformance(id) {
       .get('http://localhost:3000/user/' + id + '/performance')
       .then((res) => {
         res.data.data && setUserPerformance(res.data.data);
+      })
+      .catch((error) => {
+        console.error('An error occurred during the API call', error);
+        setUserPerformance(null);
       });
   }, []);
   return { userPerformance };
 }
 
 export function getUserScore(id) {
-  const [userScoreCecilia, setUserScoreCecilia] = useState(null);
   const [userScoreKarl, setUserScoreKarl] = useState(null);
+  const [userScoreCecilia, setUserScoreCecilia] = useState(null);
 
   useEffect(() => {
+    setUserScoreKarl(null);
+    setUserScoreCecilia(null);
     if (id === 12) {
-      axios.get('http://localhost:3000/user/' + id).then((res) => {
-        res.data.data.todayScore && setUserScoreKarl(res.data.data.todayScore);
-      });
+      axios
+        .get('http://localhost:3000/user/' + id)
+        .then((res) => {
+          res.data.data.todayScore &&
+            setUserScoreKarl(res.data.data.todayScore);
+        })
+        .catch((error) => {
+          console.error('An error occurred during the API call', error);
+          setUserScoreKarl(null);
+        });
     } else if (id === 18) {
-      axios.get('http://localhost:3000/user/' + id).then((res) => {
-        res.data.data.score && setUserScoreCecilia(res.data.data.score);
-      });
+      axios
+        .get('http://localhost:3000/user/' + id)
+        .then((res) => {
+          res.data.data.score && setUserScoreCecilia(res.data.data.score);
+        })
+        .catch((error) => {
+          console.error('An error occurred during the API call', error);
+          setUserScoreCecilia(null);
+        });
     }
   }, []);
   return { userScoreKarl, userScoreCecilia };

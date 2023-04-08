@@ -12,46 +12,40 @@ import PropTypes from 'prop-types';
 import styles from '../styles/LineChart.module.css';
 
 /**
- * A component that renders a line chart showing the average session duration for each day of the week.
- * @param {object} props - The props object.
- * @param {array} props.durationData - An array of objects containing data for each day of the week, with each object containing a "day" property (number from 1-7) and a "sessionLength" property (number).
- * @returns {JSX.Element} - The rendered line chart component.
+ * A component that renders a line chart of average session durations by day of the week
+ *
+ * @component
+ * @param {object} props - The props object
+ * @param {Array} props.durationData - An array of objects representing the data for the chart
+ * @returns {JSX.Element} - A React component
  */
-const DurationChart = ({ durationData }) => {
+const SessionsDurationChart = ({ durationData }) => {
   /**
-   * Converts a day number from 1-7 to a corresponding day letter abbreviation.
-   * @param {number} day - The day number (1-7).
-   * @returns {string} - The corresponding day letter abbreviation (e.g. "L" for Monday in French).
+   * A helper function that returns the letter representation of the given day number
+   *
+   * @function
+   * @param {number} day - The day number (1-7)
+   * @returns {string} - The letter representation of the day (M, Tu, W, Th, F, Sa, Su)
    */
-  function convertDayNumberToDayLetter(day) {
-    switch (day) {
-      case 1:
-        return 'L';
-      case 2:
-        return 'M';
-      case 3:
-        return 'M';
-      case 4:
-        return 'J';
-      case 5:
-        return 'V';
-      case 6:
-        return 'S';
-      case 7:
-        return 'D';
-      default:
-        return '';
+  function dayNumberToLetter(day) {
+    const dayLetters = ['M', 'Tu', 'W', 'Th', 'F', 'Sa', 'Su'];
+    if (day < 1 || day > 7) {
+      return '';
     }
+    return dayLetters[day - 1];
   }
 
   /**
-   * A custom tooltip component that shows the session duration for the hovered data point.
-   * @param {object} props - The props object.
-   * @param {array} props.payload - An array of objects containing the data for the hovered data point.
-   * @param {boolean} props.active - Whether the tooltip is currently active (hovered over).
-   * @returns {JSX.Element} - The rendered tooltip component.
+   * A custom tooltip component for the chart
+   *
+   * @function
+   * @param {object} props - The props object
+   * @param {object[]} props.payload - An array of data objects for the active tooltip label
+   * @param {boolean} props.active - A boolean indicating whether the tooltip is active or not
+   * @returns {JSX.Element} - A React component
    */
-  const TooltipGenerator = ({ payload, active }) => {
+  const DurationToolTip = (props) => {
+    const { payload, active } = props;
     if (active) {
       return (
         <div className={styles.durationtooltip}>
@@ -62,14 +56,16 @@ const DurationChart = ({ durationData }) => {
   };
 
   /**
-   * A component that renders the chart title.
-   * @returns {JSX.Element} - The rendered chart title component.
+   * A custom title component for the chart
+   *
+   * @function
+   * @returns {JSX.Element} - A React component
    */
   const DurationChartTitle = () => {
     return (
       <>
-        <p className={styles.durationcharttitle}>Durée moyenne des</p>
-        <p className={styles.durationcharttitle}>sessions</p>
+        <p className={styles.durationcharttitle}>Average Session Duration</p>
+        <p className={styles.durationcharttitle}>by Day of the Week</p>
       </>
     );
   };
@@ -101,14 +97,14 @@ const DurationChart = ({ durationData }) => {
           axisLine={false}
           tickLine={false}
           tick={{ fontSize: 12, fontWeight: 500 }}
-          tickFormatter={convertDayNumberToDayLetter}
+          tickFormatter={dayNumberToLetter}
           stroke="rgba(255, 255, 255, 0.5)"
           tickMargin={35}
         />
         <YAxis hide="true" domain={[]} />
         <Tooltip
           wrapperStyle={{ outline: 'none' }}
-          content={<TooltipGenerator />}
+          content={<DurationToolTip />}
           cursor={false}
         />
         <Line
@@ -123,7 +119,7 @@ const DurationChart = ({ durationData }) => {
   );
 };
 
-DurationChart.propTypes = {
+SessionsDurationChart.propTypes = {
   durationData: PropTypes.arrayOf(
     PropTypes.shape({
       day: PropTypes.number.isRequired,
@@ -132,4 +128,4 @@ DurationChart.propTypes = {
   ).isRequired,
 };
 
-export default DurationChart;
+export default SessionsDurationChart;

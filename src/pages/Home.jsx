@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React, { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import {
   getUserId,
@@ -17,13 +17,17 @@ import NutritionCard from '../components/NutritionCard';
 
 import styles from '../styles/Home.module.css';
 
+/**
+ * A React functional component representing the Home page of the application.
+ * @return {JSX.Element} The JSX element that represents the Home page.
+ */
 const Home = () => {
   const [id] = useOutletContext();
   const { userId } = getUserId(id);
   const { userActivity } = getUserActivity(id);
   const { userAverageSessions } = getUserAverageSessions(id);
   const { userPerformance } = getUserPerformance(id);
-  const { userScore } = getUserScore(id);
+  const { userScoreCecilia, userScoreKarl } = getUserScore(id);
 
   return (
     <>
@@ -38,7 +42,12 @@ const Home = () => {
                 <span className={styles.advancedstats}>
                   <LineChart durationData={userAverageSessions} />
                   <PerformanceChart performanceData={userPerformance.data} />
-                  <ScoreChart scoreData={userScore} />
+                  {id === 12 && userScoreCecilia !== undefined && (
+                    <ScoreChart scoreData={userScoreKarl} />
+                  )}
+                  {id === 18 && userScoreKarl !== undefined && (
+                    <ScoreChart scoreData={userScoreCecilia} />
+                  )}
                 </span>
               ) : null)
             }

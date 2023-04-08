@@ -10,6 +10,10 @@ import Layout from './layouts/Layout';
 import Home from './pages/Home';
 import Error404 from './pages/Error404';
 
+/**
+ * A constant that creates a browser router using the provided routes and elements.
+ * @type {BrowserRouter}
+ */
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -21,6 +25,10 @@ const router = createBrowserRouter(
   )
 );
 
+/**
+ * A function component that returns a RouterProvider with the created router.
+ * @returns {JSX.Element} The RouterProvider component.
+ */
 function Router() {
   return <RouterProvider router={router} />;
 }

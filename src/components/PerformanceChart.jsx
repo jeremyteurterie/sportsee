@@ -9,36 +9,28 @@ import PropTypes from 'prop-types';
 import styles from '../styles/PerformanceChart.module.css';
 
 /**
- * React functional component that renders a performance chart using the Recharts library.
- *
- * @param {Object} props - The component props.
- * @param {Array} props.performanceData - An array of objects containing performance data.
- * @returns {JSX.Element} - The rendered component.
+ * PerformanceChart component that displays performance data as a radar chart.
+ * @param {Object} props - The props object containing performance data.
+ * @param {Array} props.performanceData - An array of objects containing the performance data to be displayed.
+ * @returns {JSX.Element} - The PerformanceChart component UI.
  */
 const PerformanceChart = ({ performanceData }) => {
   /**
-   * Converts a performance number to a performance string.
-   *
-   * @param {number} performanceData - The performance number to convert.
-   * @returns {string|null} - The corresponding performance string, or null if no match is found.
+   * Converts performance number to performance type string.
+   * @function
+   * @param {number} performanceData - The number representing the performance type.
+   * @returns {string|null} - The performance type string or null if the performanceData parameter is invalid.
    */
-  function convertPerfNumberToPerfString(performanceData) {
-    switch (performanceData) {
-      case 1:
-        return 'Cardio';
-      case 2:
-        return 'Energie';
-      case 3:
-        return 'Endurance';
-      case 4:
-        return 'Force';
-      case 5:
-        return 'Vitesse';
-      case 6:
-        return 'Intensité';
-      default:
-        return null;
-    }
+  function convertPerformanceNumber(performanceData) {
+    const performanceMapping = {
+      1: 'Cardio',
+      2: 'Energie',
+      3: 'Endurance',
+      4: 'Force',
+      5: 'Vitesse',
+      6: 'Intensité',
+    };
+    return performanceMapping[performanceData] || null;
   }
 
   return (
@@ -57,7 +49,7 @@ const PerformanceChart = ({ performanceData }) => {
           tickLine={false}
           tick={{ fontSize: 12 }}
           stroke="#FFFFFF"
-          tickFormatter={convertPerfNumberToPerfString}
+          tickFormatter={convertPerformanceNumber}
         />
         <Radar dataKey="value" fill="#FF0101B2" />
       </RadarChart>

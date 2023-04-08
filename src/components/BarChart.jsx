@@ -12,19 +12,21 @@ import PropTypes from 'prop-types';
 import styles from '../styles/BarChart.module.css';
 
 /**
- * A bar chart that displays daily data for weight and calories burned.
- * @param {Object} props - The component props.
- * @param {Array} props.dailyData - An array of objects representing daily data.
- * @returns {JSX.Element} - A React component for the daily chart.
+ * This component displays a daily activity chart with two Y-axes representing weight (kilograms) and burned calories (kcal) over the course of the week.
+ * @param {Object} props - The props object for this component.
+ * @param {Array} props.dailyData - An array of daily data objects, each containing a 'day' (string), 'kilogram' (number), and 'calories' (number) property.
+ * @returns {JSX.Element} - A JSX element representing the daily activity chart.
  */
-const DailyChart = ({ dailyData }) => {
+const DailyActivityChart = ({ dailyData }) => {
   /**
-   * A custom tooltip component for the daily chart.
-   * @param {Object} payload - The payload of the active tooltip item.
-   * @param {boolean} active - Whether the tooltip is active.
-   * @returns {JSX.Element} - A React component for the tooltip.
+   * This function returns the JSX for the tooltip displayed when hovering over a data point in the chart.
+   * @param {Object} props - The props object for this function.
+   * @param {Array} props.payload - An array of payload data for the hovered data point.
+   * @param {boolean} props.active - A boolean value representing whether the tooltip is currently active.
+   * @returns {JSX.Element|null} - A JSX element representing the tooltip if active, otherwise null.
    */
-  const TooltipGenerator = ({ payload, active }) => {
+  function ActivityToolTip(props) {
+    const { payload, active } = props;
     if (active) {
       return (
         <div className="daily-tooltip">
@@ -32,17 +34,19 @@ const DailyChart = ({ dailyData }) => {
           <div>{payload[1].value}Kcal</div>
         </div>
       );
+    } else {
+      return null;
     }
-  };
+  }
 
   /**
-   * A function that generates a legend with a gray text color.
-   * @param {string} value - The text to display in the legend.
-   * @returns {JSX.Element} - A React component for the legend.
+   * This function returns a JSX element representing a legend item with a colorless label.
+   * @param {string} value - The label text for the legend item.
+   * @returns {JSX.Element} - A JSX element representing the legend item.
    */
-  const GenerateLegendWithoutTextColor = (value) => {
+  function ColorlessLegend(value) {
     return <span style={{ color: '#74798C' }}>{value}</span>;
-  };
+  }
 
   return (
     <div className={styles.maingraph}>
@@ -56,7 +60,7 @@ const DailyChart = ({ dailyData }) => {
       >
         <BarChart data={dailyData} barGap={8} barCategoryGap={1}>
           <Legend
-            formatter={GenerateLegendWithoutTextColor}
+            formatter={ColorlessLegend}
             iconType="circle"
             verticalAlign="top"
             align="right"
@@ -90,7 +94,7 @@ const DailyChart = ({ dailyData }) => {
           />
           <Tooltip
             wrapperStyle={{ outline: 'none' }}
-            content={<TooltipGenerator />}
+            content={<ActivityToolTip />}
           />
           <Bar
             yAxisId="kilogram"
@@ -114,7 +118,7 @@ const DailyChart = ({ dailyData }) => {
   );
 };
 
-DailyChart.propTypes = {
+DailyActivityChart.propTypes = {
   dailyData: PropTypes.arrayOf(
     PropTypes.shape({
       day: PropTypes.string.isRequired,
@@ -124,4 +128,4 @@ DailyChart.propTypes = {
   ).isRequired,
 };
 
-export default DailyChart;
+export default DailyActivityChart;

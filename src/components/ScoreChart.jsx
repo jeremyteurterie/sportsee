@@ -3,24 +3,16 @@ import PropTypes from 'prop-types';
 import styles from '../styles/ScoreChart.module.css';
 
 /**
- * React functional component that renders a score chart using the Recharts library.
- *
- * @param {Object} props - The component props.
- * @param {number} props.scoreData - The score data to render.
- * @returns {JSX.Element} - The rendered component.
+ * Displays a chart representing the user's score progress towards their goal.
+ * @param {Object} props - The component's props.
+ * @param {number} props.scoreData - The user's score progress towards their goal, represented as a number between 0 and 1.
+ * @returns {JSX.Element} - The rendered chart component.
  */
 function ScoreChart({ scoreData }) {
-  /**
-   * Formats the score data for use in a pie chart.
-   *
-   * @type {Array} - The formatted data.
-   */
   const percentScore = [{ value: scoreData }, { value: 1 - scoreData }];
-
   /**
-   * Component that renders the legend for the score chart.
-   *
-   * @returns {JSX.Element} - The rendered legend.
+   * Displays the legend for the score chart.
+   * @returns {JSX.Element} - The rendered legend component.
    */
   const ScoreChartLegend = () => {
     return (

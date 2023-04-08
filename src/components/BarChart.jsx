@@ -11,20 +11,9 @@ import {
 import PropTypes from 'prop-types';
 import styles from '../styles/BarChart.module.css';
 
-/**
- * A bar chart that displays daily data for weight and calories burned.
- * @param {Object} props - The component props.
- * @param {Array} props.dailyData - An array of objects representing daily data.
- * @returns {JSX.Element} - A React component for the daily chart.
- */
-const DailyChart = ({ dailyData }) => {
-  /**
-   * A custom tooltip component for the daily chart.
-   * @param {Object} payload - The payload of the active tooltip item.
-   * @param {boolean} active - Whether the tooltip is active.
-   * @returns {JSX.Element} - A React component for the tooltip.
-   */
-  const TooltipGenerator = ({ payload, active }) => {
+const DailyActivityChart = ({ dailyData }) => {
+  function ActivityToolTip(props) {
+    const { payload, active } = props;
     if (active) {
       return (
         <div className="daily-tooltip">
@@ -32,17 +21,14 @@ const DailyChart = ({ dailyData }) => {
           <div>{payload[1].value}Kcal</div>
         </div>
       );
+    } else {
+      return null;
     }
-  };
+  }
 
-  /**
-   * A function that generates a legend with a gray text color.
-   * @param {string} value - The text to display in the legend.
-   * @returns {JSX.Element} - A React component for the legend.
-   */
-  const GenerateLegendWithoutTextColor = (value) => {
+  function ColorlessLegend(value) {
     return <span style={{ color: '#74798C' }}>{value}</span>;
-  };
+  }
 
   return (
     <div className={styles.maingraph}>
@@ -56,7 +42,7 @@ const DailyChart = ({ dailyData }) => {
       >
         <BarChart data={dailyData} barGap={8} barCategoryGap={1}>
           <Legend
-            formatter={GenerateLegendWithoutTextColor}
+            formatter={ColorlessLegend}
             iconType="circle"
             verticalAlign="top"
             align="right"
@@ -90,7 +76,7 @@ const DailyChart = ({ dailyData }) => {
           />
           <Tooltip
             wrapperStyle={{ outline: 'none' }}
-            content={<TooltipGenerator />}
+            content={<ActivityToolTip />}
           />
           <Bar
             yAxisId="kilogram"
@@ -114,7 +100,7 @@ const DailyChart = ({ dailyData }) => {
   );
 };
 
-DailyChart.propTypes = {
+DailyActivityChart.propTypes = {
   dailyData: PropTypes.arrayOf(
     PropTypes.shape({
       day: PropTypes.string.isRequired,
@@ -124,4 +110,4 @@ DailyChart.propTypes = {
   ).isRequired,
 };
 
-export default DailyChart;
+export default DailyActivityChart;

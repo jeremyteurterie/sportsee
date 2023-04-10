@@ -17,7 +17,12 @@ export function getUserId(id) {
     axios
       .get('http://localhost:3000/user/' + id)
       .then((res) => {
-        res.data.data && setUserId(res.data.data);
+        const { data } = res.data;
+        if (data && typeof data === 'object') {
+          setUserId(data);
+        } else {
+          console.error('Invalid data format returned from API');
+        }
       })
       .catch((error) => {
         console.error('An error occurred during the API call', error);
@@ -42,7 +47,12 @@ export function getUserActivity(id) {
     axios
       .get('http://localhost:3000/user/' + id + '/activity')
       .then((res) => {
-        res.data.data.sessions && setUserActivity(res.data.data.sessions);
+        const { data } = res.data;
+        if (data && data.sessions && Array.isArray(data.sessions)) {
+          setUserActivity(data.sessions);
+        } else {
+          console.error('Invalid data format returned from API');
+        }
       })
       .catch((error) => {
         console.error('An error occurred during the API call', error);
@@ -67,8 +77,12 @@ export function getUserAverageSessions(id) {
     axios
       .get('http://localhost:3000/user/' + id + '/average-sessions')
       .then((res) => {
-        res.data.data.sessions &&
-          setUserAverageSessions(res.data.data.sessions);
+        const data = res.data.data;
+        if (data && typeof data === 'object' && Array.isArray(data.sessions)) {
+          setUserAverageSessions(data.sessions);
+        } else {
+          console.error('Invalid data format returned from API');
+        }
       })
       .catch((error) => {
         console.error('An error occurred during the API call', error);
@@ -93,7 +107,11 @@ export function getUserPerformance(id) {
     axios
       .get('http://localhost:3000/user/' + id + '/performance')
       .then((res) => {
-        res.data.data && setUserPerformance(res.data.data);
+        if (res.data && res.data.data) {
+          setUserPerformance(res.data.data);
+        } else {
+          console.error('Invalid data format returned from API');
+        }
       })
       .catch((error) => {
         console.error('An error occurred during the API call', error);
@@ -121,8 +139,12 @@ export function getUserScore(id) {
       axios
         .get('http://localhost:3000/user/' + id)
         .then((res) => {
-          res.data.data.todayScore &&
-            setUserScoreKarl(res.data.data.todayScore);
+          const data = res.data.data;
+          if (data && typeof data === 'object') {
+            setUserScoreKarl(data.todayScore);
+          } else {
+            console.error('Invalid data format returned from API');
+          }
         })
         .catch((error) => {
           console.error('An error occurred during the API call', error);
@@ -132,7 +154,12 @@ export function getUserScore(id) {
       axios
         .get('http://localhost:3000/user/' + id)
         .then((res) => {
-          res.data.data.score && setUserScoreCecilia(res.data.data.score);
+          const data = res.data.data;
+          if (data && typeof data === 'object' && data.score) {
+            setUserScoreCecilia(data.score);
+          } else {
+            console.error('Invalid data format returned from API');
+          }
         })
         .catch((error) => {
           console.error('An error occurred during the API call', error);

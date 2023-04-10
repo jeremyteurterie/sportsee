@@ -25,10 +25,10 @@ const SessionsDurationChart = ({ durationData }) => {
    *
    * @function
    * @param {number} day - The day number (1-7)
-   * @returns {string} - The letter representation of the day (M, Tu, W, Th, F, Sa, Su)
+   * @returns {string} - The letter representation of the day (L, M, M, J, V, S, D)
    */
   function dayNumberToLetter(day) {
-    const dayLetters = ['M', 'Tu', 'W', 'Th', 'F', 'Sa', 'Su'];
+    const dayLetters = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
     if (day < 1 || day > 7) {
       return '';
     }

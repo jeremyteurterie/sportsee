@@ -51,17 +51,17 @@ function generateNutritionInfo(key, value) {
     proteinCount: {
       imgSrc: proteinesIcon,
       label: 'g',
-      name: 'Proteins',
+      name: 'Protéines',
     },
     carbohydrateCount: {
       imgSrc: glucidesIcon,
       label: 'g',
-      name: 'Carbohydrates',
+      name: 'Glucides',
     },
     lipidCount: {
       imgSrc: lipidesIcon,
       label: 'g',
-      name: 'Lipids',
+      name: 'Lipides',
     },
   };
 

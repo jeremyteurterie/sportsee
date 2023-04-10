@@ -21,7 +21,4 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
-
-# backend
-backend/node_modules
+*.sw

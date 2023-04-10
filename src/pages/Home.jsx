@@ -7,7 +7,6 @@ import {
   getUserPerformance,
   getUserScore,
 } from '../hooks/useAxios';
-
 import Title from '../components/Title';
 import BarChart from '../components/BarChart';
 import LineChart from '../components/LineChart';

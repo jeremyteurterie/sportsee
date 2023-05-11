@@ -2,14 +2,14 @@
 Develop an analytics dashboard with React.
 
 ## 1. Backend
-- The repository is available here [Backend](https://github.com/pvianap/P12-sportsee-OPC).
+- The repository is available here [Backend](https://github.com/jeremyteurterie/sportsee-backend).
 
 ### 1.1 Prerequisites
  - [NodeJS v19.5.0](https://nodejs.org/en).
  - [Yarn v3.5.0](https://yarnpkg.com/).
 
 ### 1.2 Launching the project
-- Clone the repository ([Backend](https://github.com/pvianap/P12-sportsee-OPC)) on your computer.
+- Clone the repository ([Backend](https://github.com/jeremyteurterie/sportsee-backend)) on your computer.
 In the project directory :
 - Install the dependencies with the `yarn` command.
 - Run the API with the `yarn dev` command.

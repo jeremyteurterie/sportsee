@@ -14,7 +14,7 @@ import Error404 from './pages/Error404';
  * A constant that creates a browser router using the provided routes and elements.
  * @type {BrowserRouter}
  */
-const router = createBrowserRouter(
+const Routes = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<Layout />} errorElement={<Error404 />}>
@@ -30,7 +30,7 @@ const router = createBrowserRouter(
  * @returns {JSX.Element} The RouterProvider component.
  */
 function Router() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={Routes} />;
 }
 
 export default Router;

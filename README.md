@@ -3,7 +3,7 @@ Develop an analytics dashboard with React.
 ##
 ![LOGO](./logo.png)
 ##
-
+Clone this repository and follow the instructions bellow.
 ## 1. Backend
 
 ### 1.1 Prerequisites

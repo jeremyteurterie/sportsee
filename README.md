@@ -1,5 +1,8 @@
 # SportSee
 Develop an analytics dashboard with React.
+##
+![LOGO](./logo.png)
+##
 
 ## 1. Backend
 

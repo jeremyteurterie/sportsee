@@ -15,7 +15,7 @@ Clone this repository and follow the instructions bellow.
  - [Yarn v3.5.0](https://yarnpkg.com/).
 
 ### 1.2 Launching the project
-In the backend folder `/sportsee/backend` :
+In the backend folder `/sportsee/server` :
 - Install the dependencies with the `yarn` command.
 - Run the API with the `yarn dev` command.
 
@@ -28,6 +28,6 @@ In the backend folder `/sportsee/backend` :
 - [npm v9.3.1](https://www.npmjs.com/).
 
 ### 2.2 Lauching the project
-In the frontend folder `sportsee/frontend` :
+In the frontend folder `sportsee/client` :
 - Install the dependencies with the `npm install` command.
 - Run the app with the `npm run dev` command.

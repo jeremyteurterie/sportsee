@@ -1,7 +1,9 @@
 # SportSee
 Develop an analytics dashboard with React.
 ##
-![LOGO](./logo.png)
+<p align="center">
+  <img src="./logo.png" />
+</p>
 ##
 Clone this repository and follow the instructions bellow.
 ## 1. Backend

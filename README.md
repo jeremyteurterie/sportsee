@@ -31,5 +31,3 @@ In the backend folder `/sportsee/server` :
 In the frontend folder `sportsee/client` :
 - Install the dependencies with the `npm install` command.
 - Run the app with the `npm run dev` command.
-#
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c7d956d1-d9e0-4a12-a9e2-d5bdbd673f40/deploy-status?branch=production)](https://sportsee-jeremyteurterie.netlify.app)

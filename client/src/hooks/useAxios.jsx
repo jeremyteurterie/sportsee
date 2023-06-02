@@ -15,7 +15,7 @@ export function getUserId(id) {
   useEffect(() => {
     setUserId(null);
     axios
-      .get('https://sportsee-api-production.up.railway.app/user/' + id)
+      .get('https://sportsee-production.up.railway.app/user/' + id)
       .then((res) => {
         const { data } = res.data;
         if (data && typeof data === 'object') {
@@ -46,9 +46,7 @@ export function getUserActivity(id) {
     setUserActivity(null);
     axios
       .get(
-        'https://sportsee-api-production.up.railway.app/user/' +
-          id +
-          '/activity'
+        'https://sportsee-production.up.railway.app/user/' + id + '/activity'
       )
       .then((res) => {
         const { data } = res.data;
@@ -80,7 +78,7 @@ export function getUserAverageSessions(id) {
     setUserAverageSessions(null);
     axios
       .get(
-        'https://sportsee-api-production.up.railway.app/user/' +
+        'https://sportsee-production.up.railway.app/user/' +
           id +
           '/average-sessions'
       )
@@ -114,9 +112,7 @@ export function getUserPerformance(id) {
     setUserPerformance(null);
     axios
       .get(
-        'https://sportsee-api-production.up.railway.app/user/' +
-          id +
-          '/performance'
+        'https://sportsee-production.up.railway.app/user/' + id + '/performance'
       )
       .then((res) => {
         if (res.data && res.data.data) {
@@ -149,7 +145,7 @@ export function getUserScore(id) {
     setUserScoreCecilia(null);
     if (id === 12) {
       axios
-        .get('https://sportsee-api-production.up.railway.app/user/' + id)
+        .get('https://sportsee-production.up.railway.app/user/' + id)
         .then((res) => {
           const data = res.data.data;
           if (data && typeof data === 'object') {
@@ -164,7 +160,7 @@ export function getUserScore(id) {
         });
     } else if (id === 18) {
       axios
-        .get('https://sportsee-api-production.up.railway.app/user/' + id)
+        .get('https://sportsee-production.up.railway.app/user/' + id)
         .then((res) => {
           const data = res.data.data;
           if (data && typeof data === 'object' && data.score) {

@@ -15,7 +15,7 @@ export function getUserId(id) {
   useEffect(() => {
     setUserId(null);
     axios
-      .get('https://sport-api-yunv.onrender.com/user/' + id)
+      .get('https://sportsee-api-production.up.railway.app/user/' + id)
       .then((res) => {
         const { data } = res.data;
         if (data && typeof data === 'object') {
@@ -45,7 +45,11 @@ export function getUserActivity(id) {
   useEffect(() => {
     setUserActivity(null);
     axios
-      .get('https://sport-api-yunv.onrender.com/user/' + id + '/activity')
+      .get(
+        'https://sportsee-api-production.up.railway.app/user/' +
+          id +
+          '/activity'
+      )
       .then((res) => {
         const { data } = res.data;
         if (data && data.sessions && Array.isArray(data.sessions)) {
@@ -76,7 +80,9 @@ export function getUserAverageSessions(id) {
     setUserAverageSessions(null);
     axios
       .get(
-        'https://sport-api-yunv.onrender.com/user/' + id + '/average-sessions'
+        'https://sportsee-api-production.up.railway.app/user/' +
+          id +
+          '/average-sessions'
       )
       .then((res) => {
         const data = res.data.data;
@@ -107,7 +113,11 @@ export function getUserPerformance(id) {
   useEffect(() => {
     setUserPerformance(null);
     axios
-      .get('https://sport-api-yunv.onrender.com/user/' + id + '/performance')
+      .get(
+        'https://sportsee-api-production.up.railway.app/user/' +
+          id +
+          '/performance'
+      )
       .then((res) => {
         if (res.data && res.data.data) {
           setUserPerformance(res.data.data);
@@ -139,7 +149,7 @@ export function getUserScore(id) {
     setUserScoreCecilia(null);
     if (id === 12) {
       axios
-        .get('https://sport-api-yunv.onrender.com/user/' + id)
+        .get('https://sportsee-api-production.up.railway.app/user/' + id)
         .then((res) => {
           const data = res.data.data;
           if (data && typeof data === 'object') {
@@ -154,7 +164,7 @@ export function getUserScore(id) {
         });
     } else if (id === 18) {
       axios
-        .get('https://sport-api-yunv.onrender.com/user/' + id)
+        .get('https://sportsee-api-production.up.railway.app/user/' + id)
         .then((res) => {
           const data = res.data.data;
           if (data && typeof data === 'object' && data.score) {

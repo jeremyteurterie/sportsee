@@ -6,7 +6,7 @@ const router = require('./routes');
 const app = express();
 app.use(
   cors({
-    origin: 'https://sportsee-jeremyteurterie.netlify.app/',
+    origin: '*',
   })
 );
 const port = 3000;
